@@ -127,6 +127,8 @@ public class BottomBar extends FrameLayout implements View.OnClickListener, View
 
     private int mMaxFixedTabCount = 3;
 
+    private boolean mHideTitles = false;
+
     /**
      * Bind the BottomBar to your Activity, and inflate your layout here.
      * <p/>
@@ -455,6 +457,13 @@ public class BottomBar extends FrameLayout implements View.OnClickListener, View
         }
 
         mMaxFixedTabCount = -1;
+    }
+
+    /**
+     * Hide titles and only show icons
+     */
+    public void useNoTitleMode() {
+        mHideTitles = true;
     }
 
     /**
@@ -1200,6 +1209,9 @@ public class BottomBar extends FrameLayout implements View.OnClickListener, View
             if (!mIsTabletMode) {
                 TextView title = (TextView) bottomBarTab.findViewById(R.id.bb_bottom_bar_title);
                 title.setText(bottomBarItemBase.getTitle(mContext));
+                if (mHideTitles) {
+                    title.setVisibility(GONE);
+                }
 
                 if (mPendingTextAppearance != -1) {
                     MiscUtils.setTextAppearance(title, mPendingTextAppearance);
