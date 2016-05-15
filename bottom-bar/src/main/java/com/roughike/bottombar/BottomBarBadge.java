@@ -145,7 +145,7 @@ public class BottomBarBadge extends TextView {
         MiscUtils.setTextAppearance(this,
                 R.style.BB_BottomBarBadge_Text);
 
-        int three = MiscUtils.dpToPixel(context, 3);
+        int three = MiscUtils.dpToPixel(context, 1);
         ShapeDrawable backgroundCircle = BadgeCircle.make(three * 3, backgroundColor);
         setPadding(three, three, three, three);
         setBackgroundCompat(backgroundCircle);
